@@ -1,0 +1,47 @@
+    body {
+        font-family: Arial;
+    }
+
+    #header {
+        background-color: dimgray;
+        height: 5rem;
+        border-bottom: 1.5rem solid MediumAquamarine;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        color: white;
+    }
+
+    #title {
+        height: 34rem;
+        background-color: lightgray;
+        text-align: center;
+    }
+
+    * {
+        margin: 0;
+    }
+
+
+    #about {
+        display: flex;
+        height: 22rem;
+    }
+
+    #about img{
+        height: 22rem;
+    }
+
+    h3 {
+        color: MediumAquamarine;
+        width: 15rem;
+        margin: 0 auto;
+        text-align: center;
+        padding-top: 3.5rem;
+    }
+
+    #fav {
+        display:flex;
+        justify-content: space-evenly;
+    }

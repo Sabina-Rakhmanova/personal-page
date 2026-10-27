@@ -23,11 +23,11 @@ body {
 }
 
 .box1 {
-    flex-basis: 600px;
+    flex-basis: 800px;
 }
 
 .box2 {
-    flex-basis: 600px;
+    flex-basis: 450px;
 }
 
 .box3 {
@@ -35,13 +35,13 @@ body {
 }
 
 .box4 {
-    flex-basis: 200px;
+    flex-basis: 250px;
 }
 
 .box5 {
-    flex-basis: 400px;
+    flex-basis: 500px;
 }
 
 .box6 {
-    flex-basis: 400px;
+    flex-basis: 500px;
 }

@@ -20,7 +20,7 @@ body {
     background-color: lightblue;
     font-size: 10rem;
     color: blue;
-    border: 2px dashed blue;;
+    border: 2px dashed blue;
     flex-grow: 1;
     flex-shrink: 1;
 }

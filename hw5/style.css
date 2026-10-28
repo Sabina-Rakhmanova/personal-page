@@ -1,18 +1,20 @@
 * {
-     margin: 0;
-     box-sizing: border-box;
+    margin: 0;
+    box-sizing: border-box;
 }
 
 body {
-    background: url("YOUR_IMAGE_URL_HERE"); /* Replace with the image URL emailed by FuMing */
+    background: url("YOUR_IMAGE_URL_HERE");
     opacity: 0.5;
     background-repeat: no-repeat;
 }
+
 .container {
     max-width: 1400px;
     display: flex;
     flex-wrap: wrap;
 }
+
 .container > * {
     background-color: lightblue;
     font-size: 10rem;
@@ -23,15 +25,15 @@ body {
 }
 
 .box1 {
-    flex-basis: 600px;
+    flex-basis: 700px;
 }
 
 .box2 {
-    flex-basis: 6000px;
+    flex-basis: 350px;
 }
 
 .box3 {
-    flex-basis: 1300px;
+    flex-basis: 1200px;
 }
 
 .box4 {

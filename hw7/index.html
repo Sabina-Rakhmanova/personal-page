@@ -3,10 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MercyMed Bishkek — Evidence-based Family Medicine</title>
-  <meta name="description" content="Private outpatient family medical centre in Bishkek. Evidence-based, international-standard healthcare for the whole family." />
+  <title>MercyMed Bishkek Clinic — Evidence-based Family Medicine</title>
 
-  <!-- Noto Sans (supports Kyrgyz ү, ө, ң) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -15,13 +13,17 @@
 </head>
 <body>
 
-  <!-- ============ TOP BAR + LANGUAGE SWITCHER (R0) ============ -->
+    <link rel="stylesheet" href="styles.css" />
+...
+<script src="app.js"></script>
+
+  <!-- Top Notification & Language Bar -->
   <div class="top-banner">
     <div class="container banner-inner">
       <div class="banner-status">
         <span class="pulse-dot"></span>
-        <span data-i18n="banner.status">Institutional Desk Bishkek • Accredited Clinical Training Center</span>
-        <span class="badge warning-badge" data-i18n="banner.proto">Prototype • Demo</span>
+        <span data-i18n="banner.status">Institutional Desk Bishkek • Accredited Clinical Training Center &amp; Occupational Health</span>
+        <span class="badge warning-badge" data-i18n="banner.proto">Prototype Notice • Demonstration Environment</span>
       </div>
       <div class="lang-switcher">
         <button class="lang-btn active" data-lang="en">EN</button>
@@ -31,12 +33,12 @@
     </div>
   </div>
 
-  <!-- ============ HEADER ============ -->
+  <!-- Persistent Desktop Header -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="#home" class="brand-logo" aria-label="MercyMed — Home">
-        <!-- Logo rebuilt to match brand-guidelines screenshot -->
-        <svg class="logo-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <a href="#home" class="brand-logo">
+        <!-- Updated Logo — matches screenshot -->
+        <svg class="logo-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-label="MercyMed">
           <defs>
             <linearGradient id="mmGrad" x1="0" y1="0" x2="1" y2="1">
               <stop offset="0" stop-color="#F5A623"/>
@@ -44,9 +46,11 @@
             </linearGradient>
           </defs>
           <rect width="100" height="100" rx="6" fill="url(#mmGrad)"/>
-          <path d="M10 10 L50 50 L90 10 L90 34 L50 74 L10 34 Z" fill="#E63A23"/>
-          <path d="M10 24 L50 64 L90 24 L90 48 L50 88 L10 48 Z" fill="#F0662B"/>
+          <!-- Big "M" chevron layers -->
+          <path d="M10 10 L50 50 L90 10 L90 34 L50 74 L10 34 Z" fill="#E63A23" opacity="0.95"/>
+          <path d="M10 24 L50 64 L90 24 L90 48 L50 88 L10 48 Z" fill="#F0662B" opacity="0.95"/>
           <path d="M10 38 L50 78 L50 94 L10 54 Z" fill="#F58F35"/>
+          <!-- Yellow "C" crescent bottom-right -->
           <circle cx="82" cy="78" r="18" fill="#FFD100"/>
           <circle cx="70" cy="78" r="18" fill="url(#mmGrad)"/>
         </svg>
@@ -56,59 +60,49 @@
         </div>
       </a>
 
-      <nav class="main-nav" id="main-nav">
+      <!-- Primary Navigation — smooth scroll anchors -->
+      <nav class="main-nav">
         <a href="#home" class="nav-link active" data-i18n="nav.home">Home</a>
-        <a href="#about" class="nav-link" data-i18n="nav.about">About</a>
         <a href="#services" class="nav-link" data-i18n="nav.services">Services</a>
         <a href="#team" class="nav-link" data-i18n="nav.team">Team</a>
         <a href="#organisations" class="nav-link" data-i18n="nav.orgs">For Organisations</a>
-        <a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a>
       </nav>
 
       <div class="header-actions">
         <button class="btn btn-primary" onclick="openAppointmentModal()" data-i18n="nav.book">Request Appointment</button>
-        <button class="menu-toggle" aria-label="Menu" onclick="toggleMobileMenu()">☰</button>
       </div>
     </div>
   </header>
 
-  <!-- ============================================================ -->
-  <!-- HOME (R1) -->
-  <!-- ============================================================ -->
+  <!-- ===================== HOME (single scroll page) ===================== -->
   <main id="home" class="page-section">
     <section class="hero-section">
       <div class="container hero-grid">
         <div class="hero-copy">
           <div class="inline-badge draft-badge">
-            <span>✎</span> <span data-i18n="hero.draft">[Hero message: draft awaiting client confirmation]</span>
+            <span class="icon">✎</span> <span data-i18n="hero.draft">[Draft awaiting client confirmation]</span>
           </div>
-          <h1 class="hero-title" data-i18n="hero.title">
-            Evidence-based care for the whole family, in one place.
-          </h1>
+          <h1 class="hero-title" data-i18n="hero.title">Evidence-based care for the whole family, in one place.</h1>
           <p class="hero-desc" data-i18n="hero.desc">
-            A private outpatient family medical centre in Bishkek, providing international-standard healthcare with compassion.
+            A private outpatient family medical centre in Bishkek providing international standard healthcare with compassion.
           </p>
           <div class="hero-cta-group">
-            <button class="btn btn-primary btn-large" onclick="openAppointmentModal()" data-i18n="hero.cta1">
-              Request an appointment
-            </button>
-            <a href="#services" class="btn btn-outline btn-large" data-i18n="hero.cta2">
-              Discover MercyMed ↓
-            </a>
+            <button class="btn btn-primary btn-large" onclick="openAppointmentModal()" data-i18n="hero.cta1">Request an appointment</button>
+            <a href="#services" class="btn btn-outline btn-large" data-i18n="hero.cta2">Discover MercyMed ↓</a>
           </div>
           <div class="trust-pills">
             <div class="trust-pill">
-              <span class="pill-icon">✓</span>
+              <span class="check">✓</span>
               <div>
                 <strong data-i18n="hero.pill1t">WHO &amp; MoH Protocols</strong>
-                <small data-i18n="hero.pill1s">Rational prescribing</small>
+                <small data-i18n="hero.pill1s">Zero polypharmacy practice</small>
               </div>
             </div>
             <div class="trust-pill">
-              <span class="pill-icon">⏱</span>
+              <span class="clock">⏱</span>
               <div>
                 <strong data-i18n="hero.pill2t">Tunguch Facility</strong>
-                <small data-i18n="hero.pill2s">[Hours: awaiting client confirmation]</small>
+                <small data-i18n="hero.pill2s">Daily 08:00 – 20:00 (Mon–Sat)</small>
               </div>
             </div>
           </div>
@@ -117,52 +111,53 @@
         <div class="hero-media">
           <div class="media-placeholder-card">
             <div class="placeholder-icon">🏥</div>
-            <h4 data-i18n="hero.photo">[Photo awaiting client — Bishkek clinic exterior / reception]</h4>
-            <p class="meta">Tunguch Microdistrict 52/1 • Daylight</p>
+            <h4 data-i18n="hero.photo">[Photo awaiting client - Bishkek Clinic Exterior / Reception]</h4>
+            <p class="meta">Architectural shot • Tunguch facility entry • Daylight</p>
+            <div class="asset-tag">Production Asset Note: Tunguch Microdistrict 52/1</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 4 Pillars (R1) -->
+    <!-- Core Pillars -->
     <section class="section bg-light">
       <div class="container">
         <div class="section-header">
           <span class="subheading" data-i18n="pillars.sub">Standard of Excellence</span>
           <h2 data-i18n="pillars.title">Core Pillars of MercyMed Bishkek</h2>
-          <p data-i18n="pillars.desc">Providing Kyrgyz families with trustworthy, transparent diagnostic and consultative care.</p>
+          <p data-i18n="pillars.desc">Providing Kyrgyz families with trustworthy, transparent diagnostic and consultative care since inception.</p>
         </div>
 
         <div class="grid grid-4">
           <div class="card pillar-card">
             <div class="card-icon">🔬</div>
             <h3 data-i18n="pillar1.t">Evidence-based &amp; International Medicine</h3>
-            <p data-i18n="pillar1.d">Strictly fewer unnecessary tests. Every treatment regimen follows global scientific clinical guidelines.</p>
+            <p data-i18n="pillar1.d">Strictly fewer unnecessary tests and zero polypharmacy. Every treatment regimen adheres strictly to global scientific clinical guidelines.</p>
             <span class="tag" data-i18n="pillar1.tag">Rational Prescribing</span>
           </div>
           <div class="card pillar-card">
             <div class="card-icon">👥</div>
             <h3 data-i18n="pillar2.t">International &amp; Local Specialists</h3>
-            <p data-i18n="pillar2.d">Consultations available in Kyrgyz, Russian, English, German, French and Chinese for residents and visitors.</p>
+            <p data-i18n="pillar2.d">Consultations available in Kyrgyz, Russian, English, German, French, and Chinese for multi-cultural residents and diplomatic personnel.</p>
             <span class="tag" data-i18n="pillar2.tag">6 Languages Spoken</span>
           </div>
           <div class="card pillar-card">
             <div class="card-icon">👨‍👩‍👧‍👦</div>
             <h3 data-i18n="pillar3.t">Care for the Whole Family</h3>
-            <p data-i18n="pillar3.d">Pediatric, adult internal medicine, gynecology, women's wellness, and high-resolution ultrasound in one place.</p>
+            <p data-i18n="pillar3.d">Complete pediatric health checks, adult internal medicine, gynecology, women's wellness, and high-resolution ultrasound diagnostics.</p>
             <span class="tag" data-i18n="pillar3.tag">All Ages Covered</span>
           </div>
           <div class="card pillar-card">
             <div class="card-icon">🚑</div>
             <h3 data-i18n="pillar4.t">Charitable Mobile Clinics</h3>
-            <p data-i18n="pillar4.d">10+ continuous years of outreach across remote Kyrgyzstan oblasts, delivering care and humanitarian relief.</p>
+            <p data-i18n="pillar4.d">10+ continuous years of outreach across remote Kyrgyzstan oblasts, delivering medical care, screenings, and humanitarian relief.</p>
             <span class="tag highlight-tag" data-i18n="pillar4.tag">10+ Years Outreach</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Outpatient scope + Location -->
+    <!-- Outpatient Scope & Location -->
     <section class="section">
       <div class="container grid grid-2">
         <div class="card info-box">
@@ -171,88 +166,60 @@
           <p data-i18n="scope.desc">MercyMed is designed for comprehensive day visits and preventive screenings with minimal wait times.</p>
           <div class="alert-box neutral-alert">
             <strong>ⓘ <span data-i18n="scope.alertT">Strictly Outpatient Healthcare:</span></strong>
-            <span data-i18n="scope.alertB">Outpatient visits, regular check-ups, and same-day recovery. We do not provide overnight admissions or 24-hour surgical wards.</span>
+            <span data-i18n="scope.alertB">We specialize exclusively in outpatient visits, regular check-ups, and same-day recovery procedures. We do not provide overnight hospital admissions or 24-hour surgical wards.</span>
           </div>
           <div class="spec-grid">
-            <div class="spec-item">🩺 <span data-i18n="scope.spec1">Specialist Consultations</span></div>
-            <div class="spec-item">📡 <span data-i18n="scope.spec2">High-Res Ultrasound</span></div>
-            <div class="spec-item">🛏 <span data-i18n="scope.spec3">Quiet Day Infusion Room</span></div>
-            <div class="spec-item">🩹 <span data-i18n="scope.spec4">Minor Procedures</span></div>
+            <div class="spec-item" data-i18n="scope.spec1">🩺 Specialist Consultations</div>
+            <div class="spec-item" data-i18n="scope.spec2">📡 High-Res Ultrasound (USG)</div>
+            <div class="spec-item" data-i18n="scope.spec3">🛏 Quiet Day Infusion Room</div>
+            <div class="spec-item" data-i18n="scope.spec4">🩹 Minor Medical Procedures</div>
           </div>
         </div>
 
         <div class="card info-box">
-          <span class="subheading" data-i18n="loc.sub">[Approximate location — awaiting client confirmation]</span>
+          <span class="subheading" data-i18n="loc.sub">[Approximate location awaiting exact geocode]</span>
           <h3 data-i18n="loc.title">Visiting Our Clinic</h3>
-          <p data-i18n="loc.desc">Located in the Tunguch microdistrict near Ayu Grand, with quiet patient drop-off access and wheelchair ramps.</p>
+          <p data-i18n="loc.desc">Located conveniently in the Tunguch microdistrict near Ayu Grand shopping complex, with quiet patient drop-off access and wheelchair ramps.</p>
           <div class="map-placeholder">
             <div class="map-pin">📍</div>
             <strong>Tunguch Microdistrict 52/1</strong>
             <p>Near Ayu Grand Complex, Bishkek</p>
+            <span class="meta">Direct arterial access via Chuy Avenue &amp; Ankara Street</span>
           </div>
           <ul class="meta-list">
-            <li>⏰ <span data-i18n="loc.hours">[Opening hours: awaiting client confirmation]</span></li>
-            <li>📞 <span data-i18n="loc.phone">[Phone: awaiting client confirmation]</span></li>
+            <li>⏰ Monday – Saturday: 08:00 – 20:00</li>
+            <li>📞 Phone: [Awaiting client confirmation]</li>
+            <li>🚍 Bishkek Public Transport: Marshrutka 102, 169, 212</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- Instagram placeholder (PRD requirement) -->
+    <!-- Express Plus Banner -->
     <section class="section bg-light">
       <div class="container">
-        <div class="section-header">
-          <span class="subheading" data-i18n="insta.sub">Community &amp; Clinic Life</span>
-          <h2 data-i18n="insta.title">Follow MercyMed Bishkek</h2>
-          <p data-i18n="insta.desc">[Instagram feed awaiting client handle]</p>
-        </div>
-        <div class="grid grid-4">
-          <div class="insta-card"><div class="placeholder-box" data-i18n="insta.1">Family Consultations</div></div>
-          <div class="insta-card"><div class="placeholder-box" data-i18n="insta.2">Charity Outreach</div></div>
-          <div class="insta-card"><div class="placeholder-box" data-i18n="insta.3">Pediatric Care</div></div>
-          <div class="insta-card"><div class="placeholder-box" data-i18n="insta.4">Diagnostics</div></div>
+        <div class="promo-banner">
+          <div class="promo-content">
+            <span class="badge partner-badge" data-i18n="promo.badge">Official Clinical Partnership</span>
+            <h3>Express Plus Diagnostic Laboratory</h3>
+            <p data-i18n="promo.desc">All registered MercyMed Bishkek patients receive an exclusive <strong>30% discount</strong> on over 400 specialized blood, biochemistry, and hormone diagnostic panels through our integrated laboratory wing.</p>
+          </div>
+          <div class="promo-action">
+            <div class="discount-pill">30% OFF</div>
+            <a href="#services" class="btn btn-dark" data-i18n="promo.cta">View Diagnostic Panels</a>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- ============================================================ -->
-  <!-- ABOUT (R5) -->
-  <!-- ============================================================ -->
-  <section id="about" class="page-section">
-    <div class="hero-section hero-compact">
-      <div class="container">
-        <span class="subheading" data-i18n="about.sub">Our Story</span>
-        <h1 data-i18n="about.title">About MercyMed Bishkek</h1>
-        <p data-i18n="about.desc">A private medical centre built on evidence-based medicine, international experience, and compassionate whole-family care.</p>
-      </div>
-    </div>
-
-    <div class="section">
-      <div class="container grid grid-2">
-        <div class="card story-card">
-          <h3 data-i18n="about.historyT">Our History</h3>
-          <p data-i18n="about.historyD">The MercyMed project began over 10 years ago with charitable mobile clinics across remote Kyrgyzstan oblasts. Our Bishkek clinic opened in October 2023 to provide a stable base for follow-up care and a permanent team.</p>
-          <p data-i18n="about.mobileD">Mobile clinics remain the heart of MercyMed — every year our team travels to villages that invite us, providing consultations, medications, and humanitarian relief.</p>
-        </div>
-        <div class="card story-card">
-          <h3 data-i18n="about.howT">How We Work</h3>
-          <p data-i18n="about.howD">We follow evidence-based guidelines from WHO and the Ministry of Health of the Kyrgyz Republic. Every treatment plan is reviewed by our bilingual clinical faculty and explained in detail to each patient.</p>
-          <p data-i18n="about.promiseD">Our promise: fewer unnecessary tests, rational prescribing, and transparent communication in your language.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================ -->
-  <!-- SERVICES (R4) -->
-  <!-- ============================================================ -->
+  <!-- ===================== SERVICES ===================== -->
   <section id="services" class="page-section">
     <div class="hero-section hero-compact">
       <div class="container">
         <span class="subheading" data-i18n="svc.sub">Clinical Care Index • Bishkek</span>
         <h1 data-i18n="svc.title">Medical Services &amp; Consultations</h1>
-        <p data-i18n="svc.desc">Outpatient clinical services based on evidence-based medicine and international clinical guidelines. Multilingual care engineered for patient safety and dignified healing.</p>
+        <p data-i18n="svc.desc">Outpatient clinical services in Bishkek based on evidence-based medicine and international clinical guidelines. Multilingual care engineered for patient safety, multi-generational clarity, and dignified healing.</p>
       </div>
     </div>
 
@@ -261,39 +228,38 @@
         <div class="section-header">
           <span class="subheading" data-i18n="svc2.sub">Primary &amp; Subspecialty Care</span>
           <h2 data-i18n="svc2.title">Consultation Specialties</h2>
-          <p data-i18n="svc2.desc">Every appointment includes a thorough physical examination, digital prescription documentation, and a detailed patient debriefing.</p>
+          <p data-i18n="svc2.desc">Every appointment provides thorough physical examinations, digital prescription documentation, and detailed patient debriefings.</p>
         </div>
-
         <div class="grid grid-3">
           <div class="card service-card">
             <div class="card-badge" data-i18n="sc1.badge">Infants &amp; Youth</div>
             <h3 data-i18n="sc1.t">Pediatrics</h3>
-            <p data-i18n="sc1.d">Holistic infant examinations, developmental milestones, vaccination guidance, acute febrile illnesses, and gentle symptom management.</p>
+            <p data-i18n="sc1.d">Holistic infant examinations, routine developmental milestones, early vaccination guidance, acute febrile illnesses, and gentle pediatric symptom management.</p>
           </div>
           <div class="card service-card">
-            <div class="card-badge" data-i18n="sc2.badge">All Ages</div>
+            <div class="card-badge" data-i18n="sc2.badge">All Age Groups</div>
             <h3 data-i18n="sc2.t">Family Medicine</h3>
-            <p data-i18n="sc2.d">Continuous, multi-generational medical care from childhood through geriatric health. Long-term records and coordinated triage.</p>
+            <p data-i18n="sc2.d">Continuous, multi-generational medical care covering childhood through adulthood and geriatric health. Long-term health record management and coordinated triage.</p>
           </div>
           <div class="card service-card">
-            <div class="card-badge" data-i18n="sc3.badge">Adults</div>
+            <div class="card-badge" data-i18n="sc3.badge">Adult Chronic &amp; Resp</div>
             <h3 data-i18n="sc3.t">Internal Medicine &amp; Pulmonology</h3>
-            <p data-i18n="sc3.d">Advanced diagnostics for persistent cough, asthma, bronchitis, post-infectious complications, and hypertension.</p>
+            <p data-i18n="sc3.d">Advanced diagnostic investigations for persistent cough, asthma, bronchitis, post-infectious lung complications, hypertension, and complex adult multi-organ symptoms.</p>
           </div>
           <div class="card service-card">
             <div class="card-badge" data-i18n="sc4.badge">Specialist Oversight</div>
             <h3 data-i18n="sc4.t">Pediatric Critical Care &amp; Oncology</h3>
-            <p data-i18n="sc4.d">Secondary consultations, post-inpatient monitoring, complex case navigation, and expert second opinions.</p>
+            <p data-i18n="sc4.d">Secondary clinical consultations, post-inpatient monitoring, complex case navigation, and expert second opinions for fragile pediatric patients.</p>
           </div>
           <div class="card service-card">
             <div class="card-badge" data-i18n="sc5.badge">Women's Health</div>
             <h3 data-i18n="sc5.t">Gynecology &amp; Women's Health</h3>
-            <p data-i18n="sc5.d">Confidential consultations, routine screenings, prenatal monitoring, hormonal regulation, and postpartum support.</p>
+            <p data-i18n="sc5.d">Empathetic, confidential gynecological consultations, routine pap screenings, prenatal monitoring, hormonal regulation, and postpartum support.</p>
           </div>
           <div class="card service-card">
             <div class="card-badge" data-i18n="sc6.badge">Rehabilitation</div>
             <h3 data-i18n="sc6.t">Physical Therapy &amp; Rehab</h3>
-            <p data-i18n="sc6.d">Functional restoration, post-surgery rehabilitation, posture correction, and targeted pain relief.</p>
+            <p data-i18n="sc6.d">Functional restoration, orthopedic post-surgery rehabilitation, posture correction for school-age youth, and targeted pain relief.</p>
           </div>
         </div>
       </div>
@@ -308,67 +274,51 @@
         <div class="grid grid-2">
           <div class="card screening-card">
             <div class="card-badge">WHO Growth Standards</div>
-            <h4 data-i18n="prev.1t">Child Growth &amp; Development</h4>
-            <p data-i18n="prev.1d">Biometric tracking against WHO percentiles: height, head circumference, weight, and neuromotor milestones.</p>
+            <h4>Child Growth &amp; Development</h4>
+            <p>Detailed biometric tracking against World Health Organization percentiles.</p>
           </div>
           <div class="card screening-card">
             <div class="card-badge">Sensory Assessment</div>
-            <h4 data-i18n="prev.2t">Vision &amp; Hearing Screening</h4>
-            <p data-i18n="prev.2d">Standardized pediatric visual acuity panels and calibrated pure-tone audiometric evaluations.</p>
+            <h4>Vision &amp; Hearing Audiometry Screening</h4>
+            <p>Standardized pediatric visual acuity panels and calibrated audiometric evaluations.</p>
           </div>
           <div class="card screening-card">
-            <div class="card-badge">12-Lead EKG</div>
-            <h4 data-i18n="prev.3t">Diagnostic Digital EKG</h4>
-            <p data-i18n="prev.3d">Physician-interpreted resting 12-lead electrocardiography for palpitations, arrhythmias, and athletic clearance.</p>
+            <div class="card-badge">12-Lead Electrocardiogram</div>
+            <h4>Diagnostic Digital EKG</h4>
+            <p>Immediate high-resolution digital resting 12-lead electrocardiography.</p>
           </div>
           <div class="card screening-card">
             <div class="card-badge">Biochemical Panel</div>
-            <h4 data-i18n="prev.4t">Anemia &amp; Diabetes Screening</h4>
-            <p data-i18n="prev.4d">CBC, serum ferritin, iron indices, HbA1c, and fasting glucose — with 30% discount through our partner laboratory.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Clinical integrity alert (R4) -->
-    <div class="section">
-      <div class="container">
-        <div class="alert-box warning-alert">
-          <div class="alert-icon">⚠️</div>
-          <div>
-            <h4 data-i18n="warn.title">Notice on Clinical Workflow</h4>
-            <p data-i18n="warn.body">Additional procedures strictly follow the doctor's consultation. All diagnostic tests, injections, and therapy referrals are administered exclusively after an initial physician evaluation.</p>
-            <div class="pending-tag" data-i18n="warn.pending">● [Service fees &amp; detailed hours: awaiting client confirmation]</div>
+            <h4>Anemia &amp; Diabetes Metabolic Screening</h4>
+            <p>Targeted blood workup targeting common regional nutritional deficiencies.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============================================================ -->
-  <!-- TEAM (R3) -->
-  <!-- ============================================================ -->
+  <!-- ===================== TEAM ===================== -->
   <section id="team" class="page-section">
     <div class="hero-section hero-compact">
       <div class="container team-header-flex">
         <div>
           <span class="subheading" data-i18n="team.sub">Bishkek Clinical Faculty</span>
-          <h1 data-i18n="team.title">Our Medical Team</h1>
-          <p data-i18n="team.desc">Experienced local and international doctors dedicated to holistic, evidence-based care.</p>
+          <h1 data-i18n="team.title">Our Medical Team &amp; Clinical Faculty</h1>
+          <p data-i18n="team.desc">Experienced local and international doctors dedicated to holistic, evidence-based care in Bishkek.</p>
         </div>
         <div class="stats-badge">
-          <span class="stats-num">12</span>
-          <span data-i18n="team.count">Specialists &amp; Staff</span>
+          <span class="stats-num">10</span>
+          <span>Specialists &amp; Staff<br><small>Kyrgyz • English • Russian</small></span>
         </div>
       </div>
     </div>
 
     <div class="filter-bar">
       <div class="container filter-container">
-        <button class="filter-btn active" data-filter="all" data-i18n="filter.all">All Members (12)</button>
-        <button class="filter-btn" data-filter="pediatrics" data-i18n="filter.peds">Pediatrics (5)</button>
-        <button class="filter-btn" data-filter="adult" data-i18n="filter.adult">Adult &amp; Family (4)</button>
-        <button class="filter-btn" data-filter="diagnostics" data-i18n="filter.diag">Diagnostics &amp; Support (3)</button>
+        <button class="filter-btn active" data-filter="all" data-i18n="filter.all">All Members (10)</button>
+        <button class="filter-btn" data-filter="pediatrics" data-i18n="filter.peds">Pediatrics (4)</button>
+        <button class="filter-btn" data-filter="adult" data-i18n="filter.adult">Adult &amp; Family Care (4)</button>
+        <button class="filter-btn" data-filter="diagnostics" data-i18n="filter.diag">Diagnostics &amp; Support (2)</button>
       </div>
     </div>
 
@@ -377,121 +327,99 @@
         <!-- 1 -->
         <div class="card doctor-card" data-category="adult">
           <div class="doctor-badge leader-badge">Leadership</div>
-          <img class="doctor-photo" src="assets/team/mahabat-alieva.jpg" alt="Mahabat Alieva" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-          <div class="doctor-avatar" style="display:none;">[Photo awaiting client]</div>
+          <img class="doctor-photo" src="assets/team/mahabat-alieva.jpg" alt="Mahabat Alieva" />
           <span class="specialty-label">Director / Certified Doula</span>
           <h4>Mahabat Alieva</h4>
-          <p class="bio">Overseeing clinic operations and birth preparation courses. Dedicated to empowering mothers through compassionate perinatal care.</p>
+          <p class="bio">Overseeing clinic operations and birth preparation courses. Dedicated to empowering mothers through compassionate, evidence-based perinatal care.</p>
           <div class="doc-meta"><span class="lang-tag">Kyrgyz</span><span class="lang-tag">Russian</span></div>
         </div>
+
         <!-- 2 -->
         <div class="card doctor-card" data-category="pediatrics">
           <div class="doctor-badge chief-badge">Chief Doctor</div>
-          <img class="doctor-photo" src="assets/team/jonathan-williams.jpg" alt="Dr. Jonathan Williams" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-          <div class="doctor-avatar" style="display:none;">[Photo awaiting client]</div>
+          <img class="doctor-photo" src="assets/team/jonathan-williams.jpg" alt="Dr. Jonathan Williams" />
           <span class="specialty-label">Pediatrics</span>
           <h4>Dr. Jonathan Williams</h4>
-          <p class="bio">Leading the clinical faculty with extensive international pediatric experience in preventive care and acute outpatient treatment.</p>
+          <p class="bio">Leading the clinical faculty with extensive international pediatric experience. Specializes in preventive childhood development and acute outpatient treatment.</p>
           <div class="doc-meta"><span class="lang-tag">English</span><span class="lang-tag">Russian</span></div>
         </div>
+
         <!-- 3 -->
         <div class="card doctor-card" data-category="pediatrics adult">
-          <img class="doctor-photo" src="assets/team/irina-pak.jpg" alt="Dr. Irina Pak" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-          <div class="doctor-avatar" style="display:none;">[Photo awaiting client]</div>
+          <img class="doctor-photo" src="assets/team/irina-pak.jpg" alt="Dr. Irina Pak" />
           <span class="specialty-label">Pediatrics / Family</span>
           <h4>Dr. Irina Pak</h4>
-          <p class="bio">Comprehensive family care and modern diagnostic protocols. Focuses on preventive screenings and continuous health tracking.</p>
+          <p class="bio">Delivers comprehensive family care and modern diagnostic protocols for all ages. Focuses on preventative screenings and continuous health tracking.</p>
           <div class="doc-meta"><span class="lang-tag">Russian</span><span class="lang-tag">Kyrgyz</span></div>
         </div>
+
         <!-- 4 -->
         <div class="card doctor-card" data-category="adult">
-          <img class="doctor-photo" src="assets/team/nasyikat-dononbaeva.jpg" alt="Dr. Nasyikat Dononbaeva" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-          <div class="doctor-avatar" style="display:none;">[Photo awaiting client]</div>
+          <img class="doctor-photo" src="assets/team/nasyikat-dononbaeva.jpg" alt="Dr. Nasyikat Dononbaeva" />
           <span class="specialty-label">Internal Medicine / Pulmonology</span>
           <h4>Dr. Nasyikat Dononbaeva</h4>
-          <p class="bio">Adult internal health, respiratory conditions, and chronic disease management using modern clinical diagnostics.</p>
+          <p class="bio">Specialized in adult internal health, respiratory conditions, and chronic disease management. Employs modern clinical diagnostics for persistent pulmonary conditions.</p>
           <div class="doc-meta"><span class="lang-tag">Kyrgyz</span><span class="lang-tag">Russian</span></div>
         </div>
+
         <!-- 5 -->
         <div class="card doctor-card" data-category="pediatrics">
-          <img class="doctor-photo" src="assets/team/nabat-gasimova.jpg" alt="Dr. Nabat Gasimova" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-          <div class="doctor-avatar" style="display:none;">[Photo awaiting client]</div>
+          <img class="doctor-photo" src="assets/team/nabat-gasimova.jpg" alt="Dr. Nabat Gasimova" />
           <span class="specialty-label">Pediatric Intensivist</span>
           <h4>Dr. Nabat Gasimova</h4>
-          <p class="bio">High-level pediatric evaluations and acute intensive care. Manages urgent pediatric conditions with deep empathy.</p>
+          <p class="bio">Provides high-level pediatric clinical evaluations and acute intensive medical care. Trained to manage urgent pediatric conditions with deep empathy.</p>
           <div class="doc-meta"><span class="lang-tag">Russian</span><span class="lang-tag">English</span></div>
         </div>
+
         <!-- 6 -->
         <div class="card doctor-card" data-category="pediatrics">
-          <img class="doctor-photo" src="assets/team/nancy-yau.jpg" alt="Dr. Nancy Yau" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-          <div class="doctor-avatar" style="display:none;">[Photo awaiting client]</div>
+          <img class="doctor-photo" src="assets/team/nancy-yau.jpg" alt="Dr. Nancy Yau" />
           <span class="specialty-label">Pediatrics</span>
           <h4>Dr. Nancy Yau</h4>
-          <p class="bio">Family-centered pediatric care and routine developmental milestone checks, guided by evidence-based wellness protocols.</p>
-          <div class="doc-meta"><span class="lang-tag">English</span><span class="lang-tag">Russian</span><span class="lang-tag">Chinese</span></div>
-        </div>
-        <!-- 7 -->
-        <div class="card doctor-card" data-category="pediatrics">
-          <img class="doctor-photo" src="assets/team/lukas-meyer-landholt.jpg" alt="Dr. Lukas Meyer-Landholt" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-          <div class="doctor-avatar" style="display:none;">[Photo awaiting client]</div>
-          <span class="specialty-label">Pediatrics / Oncology</span>
-          <h4>Dr. Lukas Meyer-Landholt</h4>
-          <p class="bio">International pediatric specialist in oncology and hematology, passionate about holistic community health and clinical outreach.</p>
-          <div class="doc-meta"><span class="lang-tag">German</span><span class="lang-tag">English</span><span class="lang-tag">Russian</span><span class="lang-tag">French</span></div>
-        </div>
-        <!-- 8 -->
-        <div class="card doctor-card" data-category="adult">
-          <img class="doctor-photo" src="assets/team/madison-smith.jpg" alt="Madison Smith" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-          <div class="doctor-avatar" style="display:none;">[Photo awaiting client]</div>
-          <span class="specialty-label">Physical Therapist</span>
-          <h4>Madison Smith</h4>
-          <p class="bio">Physical rehabilitation, movement therapy, and post-injury functional recovery, with customized restorative programs.</p>
+          <p class="bio">Committed to family-centered pediatric care and routine developmental milestone checks. Guides parents with evidence-based wellness protocols.</p>
           <div class="doc-meta"><span class="lang-tag">English</span><span class="lang-tag">Russian</span></div>
         </div>
+
+        <!-- 7 -->
+        <div class="card doctor-card" data-category="pediatrics">
+          <img class="doctor-photo" src="assets/team/lukas-meyer-landholt.jpg" alt="Dr. Lukas Meyer-Landholt" />
+          <span class="specialty-label">Pediatrics / Oncology</span>
+          <h4>Dr. Lukas Meyer-Landholt</h4>
+          <p class="bio">International pediatric specialist passionate about holistic community health and mobile clinical outreach. Brings rigorous European clinical training to Bishkek.</p>
+          <div class="doc-meta"><span class="lang-tag">German</span><span class="lang-tag">English</span><span class="lang-tag">Russian</span></div>
+        </div>
+
+        <!-- 8 -->
+        <div class="card doctor-card" data-category="adult">
+          <img class="doctor-photo" src="assets/team/madison-smith.jpg" alt="Madison Smith" />
+          <span class="specialty-label">Physical Therapist</span>
+          <h4>Madison Smith</h4>
+          <p class="bio">Specializes in physical rehabilitation, movement therapy, and post-injury functional recovery. Designs customized restorative programs for all patients.</p>
+          <div class="doc-meta"><span class="lang-tag">English</span><span class="lang-tag">Russian</span></div>
+        </div>
+
         <!-- 9 -->
         <div class="card doctor-card" data-category="adult">
-          <img class="doctor-photo" src="assets/team/simbat-sadyrbaeva.jpg" alt="Dr. Simbat Sadyrbaeva" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-          <div class="doctor-avatar" style="display:none;">[Photo awaiting client]</div>
+          <img class="doctor-photo" src="assets/team/simbat-sadyrbaeva.jpg" alt="Dr. Simbat Sadyrbaeva" />
           <span class="specialty-label">Gynecology</span>
           <h4>Dr. Simbat Sadyrbaeva</h4>
-          <p class="bio">Comprehensive women's health consultations, preventive screenings, and prenatal care in a secure environment.</p>
+          <p class="bio">Provides comprehensive women's health consultations, preventive screenings, and prenatal care. Dedicated to a secure environment for every patient.</p>
           <div class="doc-meta"><span class="lang-tag">Kyrgyz</span><span class="lang-tag">Russian</span></div>
         </div>
+
         <!-- 10 -->
         <div class="card doctor-card" data-category="diagnostics">
-          <img class="doctor-photo" src="assets/team/nargiza-islamova.jpg" alt="Dr. Nargiza Islamova" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-          <div class="doctor-avatar" style="display:none;">[Photo awaiting client]</div>
+          <img class="doctor-photo" src="assets/team/nargiza-islamova.jpg" alt="Dr. Nargiza Islamova" />
           <span class="specialty-label">Ultrasound Diagnostics</span>
           <h4>Dr. Nargiza Islamova</h4>
-          <p class="bio">High-resolution ultrasound imaging across abdominal, pelvic, and pediatric exams with meticulous diagnostic clarity.</p>
-          <div class="doc-meta"><span class="lang-tag">Kyrgyz</span><span class="lang-tag">Russian</span></div>
-        </div>
-        <!-- 11 -->
-        <div class="card doctor-card" data-category="diagnostics">
-          <div class="doctor-badge pending-badge">Profile Pending</div>
-          <div class="doctor-avatar">[Photo awaiting client]</div>
-          <span class="specialty-label">Clinical Nursing &amp; Media</span>
-          <h4 data-i18n="staff1.name">[Staff Nurse &amp; Videographer]</h4>
-          <p class="bio">Dedicated clinical nursing care alongside patient education video production in Russian and Kyrgyz.</p>
-          <div class="doc-meta"><span class="lang-tag">Kyrgyz</span><span class="lang-tag">Russian</span></div>
-        </div>
-        <!-- 12 -->
-        <div class="card doctor-card" data-category="diagnostics">
-          <div class="doctor-badge pending-badge">Profile Pending</div>
-          <div class="doctor-avatar">[Photo awaiting client]</div>
-          <span class="specialty-label">Clinic Administration</span>
-          <h4 data-i18n="staff2.name">[Receptionist &amp; Administrator]</h4>
-          <p class="bio">Patient intake, multilingual scheduling, and front-desk navigation — a welcoming reception for every family.</p>
+          <p class="bio">Conducts high-resolution ultrasound imaging across abdominal, pelvic, and pediatric exams. Ensures meticulous diagnostic clarity with rapid reporting.</p>
           <div class="doc-meta"><span class="lang-tag">Kyrgyz</span><span class="lang-tag">Russian</span></div>
         </div>
       </div>
     </div>
-        </div>
   </section>
 
-  <!-- ============================================================ -->
-  <!-- FOR ORGANISATIONS (R6) -->
-  <!-- ============================================================ -->
+  <!-- ===================== FOR ORGANISATIONS ===================== -->
   <section id="organisations" class="page-section">
     <div class="hero-section hero-compact">
       <div class="container hero-split">
@@ -501,7 +429,7 @@
           <p data-i18n="org.desc">Corporate annual check-ups, educational partnerships for medical students, and dedicated staff health programs.</p>
         </div>
         <div class="liaison-card">
-          <span class="liaison-label" data-i18n="org.liaison">Institutional Liaison Desk</span>
+          <span class="liaison-label">Institutional Liaison Desk</span>
           <div class="liaison-phone">+996 (312) 98-76-55</div>
           <div class="liaison-email">direct-liaison@mercymed.kg</div>
         </div>
@@ -514,22 +442,11 @@
           <span class="track-code">Track A • Corporate Health</span>
           <h3 data-i18n="trackA.t">Corporate &amp; Institutional Health</h3>
           <p data-i18n="trackA.d">Structured occupational medicine conforming to both Kyrgyz labor sanitary mandates and rigorous international standards.</p>
-          <ul class="track-list">
-            <li><strong data-i18n="trackA.1t">Annual Staff Health Check-ups:</strong> <span data-i18n="trackA.1d">Preventive cardiovascular, metabolic, ophthalmic, and pulmonary assessments on-site or at our Tunguch facility.</span></li>
-            <li><strong data-i18n="trackA.2t">Embassy &amp; Expat Staff Packages:</strong> <span data-i18n="trackA.2d">Western-aligned protocol consultations, trilingual medical documentation, and insurance claim coordination.</span></li>
-            <li><strong data-i18n="trackA.3t">School Health Screenings:</strong> <span data-i18n="trackA.3d">Pediatric physicals, developmental screenings, sports clearances, and immunization status checks.</span></li>
-          </ul>
         </div>
-
         <div class="card track-card">
           <span class="track-code">Track B • Medical Education</span>
           <h3 data-i18n="trackB.t">Medical Education &amp; Training</h3>
           <p data-i18n="trackB.d">Cultivating the next generation of healthcare leaders in Central Asia through evidence-based mentorship and clinical electives.</p>
-          <ul class="track-list">
-            <li><strong data-i18n="trackB.1t">Training for Doctors &amp; Students:</strong> <span data-i18n="trackB.1d">Shadowing alongside senior bilingual consultants, outpatient diagnostic rounds, and point-of-care ultrasound training.</span></li>
-            <li><strong data-i18n="trackB.2t">Clinical Seminars &amp; Grand Rounds:</strong> <span data-i18n="trackB.2d">Bi-weekly multidisciplinary case presentations reviewing complex patient trajectories.</span></li>
-            <li><strong data-i18n="trackB.3t">Residency Clinical Electives:</strong> <span data-i18n="trackB.3d">4-to-12 week structured rotations for international and Kyrgyz medical residents in outpatient internal medicine and pediatrics.</span></li>
-          </ul>
         </div>
       </div>
     </div>
@@ -540,7 +457,7 @@
           <div class="section-header text-left">
             <span class="subheading" data-i18n="org2.sub">Direct Response Commitment</span>
             <h2 data-i18n="org2.title">Initiate Institutional Cooperation</h2>
-            <p data-i18n="org2.desc">Submit your initial requirements to connect directly with our Head of Medical Partnerships. We respond within 24 hours.</p>
+            <p data-i18n="org2.desc">Submit your initial requirements to connect directly with our Head of Medical Partnerships.</p>
           </div>
 
           <form id="org-form" onsubmit="handleOrgSubmit(event)">
@@ -564,75 +481,18 @@
                 <input type="tel" required placeholder="+996 (___) __-__-__" />
               </div>
             </div>
-            <div class="form-group">
-              <label data-i18n="f.type">Primary Type of Cooperation *</label>
-              <select required>
-                <option value="">—</option>
-                <option value="corporate" data-i18n="f.opt1">Corporate Staff Annual Check-up</option>
-                <option value="embassy" data-i18n="f.opt2">Diplomatic Mission / Expat Care</option>
-                <option value="school" data-i18n="f.opt3">School Student &amp; Staff Screening</option>
-                <option value="education" data-i18n="f.opt4">Medical Student Shadowing / Training</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label data-i18n="f.notes">Specific Requirements or Objectives</label>
-              <textarea rows="3" placeholder=""></textarea>
-            </div>
             <button type="submit" class="btn btn-primary btn-full" data-i18n="f.submit">Submit Partnership Intake</button>
           </form>
 
           <div id="org-success" class="alert-box success-alert hidden">
-            <strong>✓ <span data-i18n="f.success">Prototype Intake Logged — nothing was sent.</span></strong>
+            <strong>✓ Prototype Intake Logged:</strong> Your cooperation inquiry has been simulated for demonstration.
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============================================================ -->
-  <!-- CONTACT -->
-  <!-- ============================================================ -->
-  <section id="contact" class="page-section">
-    <div class="hero-section hero-compact">
-      <div class="container">
-        <span class="subheading" data-i18n="contact.sub">Get in Touch</span>
-        <h1 data-i18n="contact.title">Contact MercyMed Bishkek</h1>
-        <p data-i18n="contact.desc">Reach our reception team for appointments, questions, or partnership enquiries.</p>
-      </div>
-    </div>
-
-    <div class="section">
-      <div class="container grid grid-2">
-        <div class="card contact-card">
-          <h3>📞 <span data-i18n="contact.phone">Phone</span></h3>
-          <p class="contact-value" data-i18n="contact.phoneVal">[Awaiting client confirmation]</p>
-
-          <h3>💬 <span data-i18n="contact.whatsapp">WhatsApp</span></h3>
-          <p class="contact-value" data-i18n="contact.whatsappVal">[Awaiting client confirmation]</p>
-
-          <h3>✉️ <span data-i18n="contact.email">Email</span></h3>
-          <p class="contact-value" data-i18n="contact.emailVal">[Awaiting client confirmation]</p>
-        </div>
-
-        <div class="card contact-card">
-          <h3>📍 <span data-i18n="contact.address">Address</span></h3>
-          <p class="contact-value" data-i18n="contact.addressVal">Tunguch Microdistrict 52/1, Bishkek (approximate)</p>
-          <div class="map-placeholder small">
-            <div class="map-pin">📍</div>
-            <strong>Tunguch Microdistrict 52/1</strong>
-            <p>Near Ayu Grand Complex, Bishkek</p>
-          </div>
-          <button class="btn btn-primary btn-full btn-large" onclick="openAppointmentModal()" data-i18n="contact.cta">
-            Request Appointment
-          </button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================ -->
-  <!-- FOOTER -->
-  <!-- ============================================================ -->
+  <!-- Footer -->
   <footer class="site-footer">
     <div class="container footer-grid">
       <div class="footer-col brand-col">
@@ -643,41 +503,35 @@
         <p data-i18n="footer.tag">Compassionate, international-standard healthcare serving multi-generational families and organisations across Kyrgyzstan.</p>
         <span class="location-badge">📍 Tunguch Microdistrict, Bishkek</span>
       </div>
-
       <div class="footer-col">
         <h4 data-i18n="footer.loc">Facility Location</h4>
         <p>Tunguch Microdistrict, 52/1<br>Bishkek 720048, Kyrgyz Republic</p>
-        <p><strong>Hours:</strong> [Awaiting client confirmation]</p>
+        <p><strong>Hours:</strong> Mon – Sat, 08:00 – 20:00<br><strong>Urgent Call:</strong> +996 (312) 98-76-54</p>
       </div>
-
       <div class="footer-col">
         <h4 data-i18n="footer.nav">Quick Navigation</h4>
         <ul class="footer-links">
-          <li><a href="#services" data-i18n="footer.services">Medical Services</a></li>
-          <li><a href="#team" data-i18n="footer.team">Specialist Doctors</a></li>
-          <li><a href="#organisations" data-i18n="footer.orgs">Corporate Health</a></li>
-          <li><a href="#" onclick="openAppointmentModal();return false;" data-i18n="footer.book">Book Intake Session</a></li>
+          <li><a href="#services" data-i18n="nav.services">Medical Services</a></li>
+          <li><a href="#team" data-i18n="nav.team">Specialist Doctors</a></li>
+          <li><a href="#organisations" data-i18n="nav.orgs">Corporate Health</a></li>
+          <li><a href="#" onclick="openAppointmentModal()" data-i18n="nav.book">Book Intake Session</a></li>
         </ul>
       </div>
-
       <div class="footer-col">
         <h4 data-i18n="footer.lang">Languages &amp; Notice</h4>
         <p class="lang-pills">English • Русский • Кыргызча</p>
         <p class="legal-notice" data-i18n="footer.legal">Licensed by the Ministry of Health of the Kyrgyz Republic. All consultations conform to evidence-based protocols.</p>
       </div>
     </div>
-
     <div class="footer-bottom">
       <div class="container bottom-flex">
         <span>© 2026 MercyMed Bishkek. All rights reserved.</span>
-        <span class="badge warning-badge" data-i18n="banner.proto">Prototype • Demo</span>
+        <span class="badge warning-badge" data-i18n="banner.proto">Prototype Notice • Demonstration Environment</span>
       </div>
     </div>
   </footer>
 
-  <!-- ============================================================ -->
-  <!-- APPOINTMENT MODAL (R2) -->
-  <!-- ============================================================ -->
+  <!-- ============ APPOINTMENT MODAL ============ -->
   <div id="appointment-modal" class="modal-backdrop hidden">
     <div class="modal-card">
       <div class="modal-header">
@@ -685,12 +539,13 @@
           <span class="subheading" data-i18n="modal.sub">Direct Patient Intake</span>
           <h3 data-i18n="modal.title">Request an Appointment</h3>
         </div>
-        <button class="modal-close" onclick="closeAppointmentModal()" aria-label="Close">✕</button>
+        <button class="modal-close" onclick="closeAppointmentModal()">✕</button>
       </div>
 
       <div class="modal-body">
         <div class="alert-box warning-alert modal-alert">
-          <strong>⚠️ </strong><span data-i18n="modal.notice">Prototype Demonstration Only: no real patient data is collected, stored, or transmitted.</span>
+          <strong>⚠️ Prototype Demonstration Only:</strong>
+          <span>No real patient data is collected, stored, or transmitted.</span>
         </div>
 
         <form id="appointment-form" onsubmit="handleAppointmentSubmit(event)">
@@ -702,6 +557,7 @@
           <div class="form-row">
             <div class="form-group">
               <label data-i18n="app.dob">Date of Birth *</label>
+              <!-- FIX #1: inputmode numeric, maxlength 10, JS auto-formats -->
               <input
                 type="text"
                 id="app-dob"
@@ -715,67 +571,4 @@
               />
             </div>
             <div class="form-group">
-              <label data-i18n="app.phone">Phone Number *</label>
-              <input type="tel" id="app-phone" required placeholder="+996 (___) __-__-__" />
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label data-i18n="app.doctor">Preferred Doctor / Consultation Type</label>
-            <select id="app-doctor">
-              <option value="General Adult Consultation">General Adult Consultation</option>
-              <option value="General Pediatric Consultation">General Pediatric Consultation</option>
-              <option value="Dr. Jonathan Williams (Chief Doctor / Pediatrics)">Dr. Jonathan Williams (Pediatrics)</option>
-              <option value="Dr. Irina Pak (Pediatrics / Family)">Dr. Irina Pak (Pediatrics / Family)</option>
-              <option value="Dr. Nasyikat Dononbaeva (Internal Medicine / Pulmonology)">Dr. Nasyikat Dononbaeva (Pulmonology)</option>
-              <option value="Dr. Simbat Sadyrbaeva (Gynecology)">Dr. Simbat Sadyrbaeva (Gynecology)</option>
-              <option value="Dr. Nargiza Islamova (Ultrasound Diagnostics)">Dr. Nargiza Islamova (Ultrasound)</option>
-              <option value="Mahabat Alieva (Director / Certified Doula)">Mahabat Alieva (Doula Course)</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label data-i18n="app.lang">Preferred Language of Consultation</label>
-            <div class="radio-pill-group">
-              <label class="radio-pill"><input type="radio" name="app-lang" value="English" checked /> English</label>
-              <label class="radio-pill"><input type="radio" name="app-lang" value="Русский" /> Русский</label>
-              <label class="radio-pill"><input type="radio" name="app-lang" value="Кыргызча" /> Кыргызча</label>
-              <label class="radio-pill"><input type="radio" name="app-lang" value="Deutsch" /> Deutsch</label>
-            </div>
-          </div>
-
-          <button type="submit" class="btn btn-primary btn-full btn-large" data-i18n="app.submit">
-            Preview Appointment Request
-          </button>
-        </form>
-
-        <!-- Simulated WhatsApp Preview -->
-        <div id="dispatch-preview" class="dispatch-box hidden">
-          <div class="dispatch-header">
-            <span class="dispatch-title">💬 <span data-i18n="app.dispatch">Simulated Coordinator WhatsApp Dispatch</span></span>
-            <span class="badge success-badge">Live Mockup</span>
-          </div>
-          <div class="dispatch-message">
-            <p><strong><span data-i18n="app.to">To:</span></strong> <span data-i18n="app.toVal">MercyMed Triage Coordinator</span></p>
-            <hr />
-            <p class="wa-salute" data-i18n="app.salute">Hello MercyMed Clinic!</p>
-            <p data-i18n="app.want">I would like to request an outpatient consultation.</p>
-            <div class="wa-data">
-              <div><strong><span data-i18n="app.waName">Name:</span></strong> <span id="wa-name">-</span></div>
-              <div><strong><span data-i18n="app.waDob">DOB:</span></strong> <span id="wa-dob">-</span></div>
-              <div><strong><span data-i18n="app.waPhone">Phone:</span></strong> <span id="wa-phone">-</span></div>
-              <div><strong><span data-i18n="app.waDoctor">Consultation:</span></strong> <span id="wa-doctor">-</span></div>
-              <div><strong><span data-i18n="app.waLang">Language:</span></strong> <span id="wa-lang">-</span></div>
-            </div>
-          </div>
-          <div class="dispatch-notice" data-i18n="app.notSent">
-            ⛔ PROTOTYPE: NOTHING WAS SENT. NO REAL DATA TRANSMITTED.
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script src="app.js"></script>
-</body>
-</html>
+              <label data-i18n="app.

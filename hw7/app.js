@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initActiveSectionObserver();
   initLanguageSwitcher();
   initTeamFilters();
-  initFormValidation(); // <--- ADD THIS, and you can delete initDobFormatter(); if you want, or leave it since we replaced its contents.
+  initFormValidation(); // <-- This replaces initDobFormatter
   initModalBackdropClose();
   initMobileMenu();
 });
@@ -532,9 +532,6 @@ function initDobFormatter() {
   });
 }
 
-/* ========================================================
-   5. APPOINTMENT MODAL
-   ======================================================== */
 /* ============================================================
    5. FORM VALIDATION & FORMATTERS
    ============================================================ */
@@ -546,7 +543,6 @@ function initFormValidation() {
   // --- A. NAME: Only letters, spaces, and hyphens ---
   if (nameInput) {
     nameInput.addEventListener('input', (e) => {
-      // Allow letters (any language), spaces, and hyphens
       e.target.value = e.target.value.replace(/[^\p{L}\s\-]/gu, '');
     });
   }
@@ -555,19 +551,12 @@ function initFormValidation() {
   if (phoneInput) {
     phoneInput.addEventListener('input', (e) => {
       let val = e.target.value;
-      
-      // Allow only numbers and +
-      val = val.replace(/[^\d+]/g, '');
-      
-      // Ensure + is only at the start
+      val = val.replace(/[^\d+]/g, ''); // Strip letters
       if (val.indexOf('+') > 0) {
-        val = val.replace(/\+/g, ''); // Remove all +
-        val = '+' + val; // Add one at the start if needed
+        val = val.replace(/\+/g, ''); 
+        val = '+' + val; 
       }
-      
-      // Limit length to prevent endless strings
-      if (val.length > 16) val = val.slice(0, 16);
-      
+      if (val.length > 16) val = val.slice(0, 16); // Cap length
       e.target.value = val;
     });
   }
@@ -575,14 +564,11 @@ function initFormValidation() {
   // --- C. DATE OF BIRTH: Auto-format & allow backspace ---
   if (dobInput) {
     function formatDate(value) {
-      // Keep only digits
       const digits = value.replace(/\D/g, '').slice(0, 8);
-      
       let day = digits.slice(0, 2);
       let month = digits.slice(2, 4);
       let year = digits.slice(4, 8);
 
-      // Clamp day and month
       if (day.length === 2) {
         const d = Math.min(Math.max(parseInt(day, 10) || 1, 1), 31);
         day = String(d).padStart(2, '0');
@@ -592,7 +578,6 @@ function initFormValidation() {
         month = String(m).padStart(2, '0');
       }
 
-      // Build string
       let out = day;
       if (digits.length >= 2) out += '.';
       out += month;
@@ -604,35 +589,20 @@ function initFormValidation() {
     dobInput.addEventListener('input', (e) => {
       const cursorPos = e.target.selectionStart;
       const oldVal = e.target.value;
-      const newVal = formatDate(oldVal);
-      e.target.value = newVal;
+      e.target.value = formatDate(oldVal);
       
-      // Adjust cursor position if a dot was auto-inserted/removed
-      if (cursorPos === 3 && oldVal.length < newVal.length) {
+      // Smart cursor jump past the dot
+      if (cursorPos === 3 && e.target.value.length > oldVal.length) {
         e.target.setSelectionRange(4, 4);
       }
     });
 
-    dobInput.addEventListener('paste', (e) => {
-      e.preventDefault();
-      const pasted = (e.clipboardData || window.clipboardData).getData('text');
-      e.target.value = formatDate(pasted);
-    });
-
-    // Allow ONLY backspace, delete, arrows, tab, and numbers
     dobInput.addEventListener('keydown', (e) => {
       const allowed = ['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'Tab', 'Home', 'End'];
+      // Allow normal navigation/deletion
       if (allowed.includes(e.key)) return;
-      
-      // If not a number, block it
+      // Block non-numbers
       if (!/^\d$/.test(e.key)) {
-        e.preventDefault();
-        return;
-      }
-      
-      // Prevent typing more than 8 digits total
-      const currentDigits = e.target.value.replace(/\D/g, '');
-      if (currentDigits.length >= 8 && e.target.selectionStart === e.target.value.length) {
         e.preventDefault();
       }
     });
@@ -642,11 +612,39 @@ function initFormValidation() {
 /* ========================================================
    6. INSTITUTIONAL COOPERATION INTAKE
    ======================================================== */
-function handleOrgSubmit(event) {
-  event.preventDefault();
-  const successBox = document.getElementById('org-success');
-  if (!successBox) return;
-  successBox.classList.remove('hidden');
-  event.target.reset();
-  successBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+function handleAppointmentSubmit(event) {
+  event.preventDefault(); // Stop page reload
+
+  const name = document.getElementById('app-name').value.trim();
+  const dob = document.getElementById('app-dob').value.trim();
+  const phone = document.getElementById('app-phone').value.trim();
+  
+  // Manual validation (just in case browser validation is weird)
+  if (!name || !dob || !phone) {
+    alert("Please fill in your Name, Date of Birth, and Phone Number.");
+    return;
+  }
+  if (dob.length < 10) {
+    alert("Please enter a complete Date of Birth (DD.MM.YYYY).");
+    document.getElementById('app-dob').focus();
+    return;
+  }
+
+  const doctor = document.getElementById('app-doctor').value;
+  const langElement = document.querySelector('input[name="app-lang"]:checked');
+  const lang = langElement ? langElement.value : 'English';
+
+  // Populate preview
+  document.getElementById('wa-name').textContent = name;
+  document.getElementById('wa-dob').textContent = dob;
+  document.getElementById('wa-phone').textContent = phone;
+  document.getElementById('wa-doctor').textContent = doctor;
+  document.getElementById('wa-lang').textContent = lang;
+
+  // Show preview
+  const preview = document.getElementById('dispatch-preview');
+  if (preview) {
+    preview.classList.remove('hidden');
+    preview.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
 }

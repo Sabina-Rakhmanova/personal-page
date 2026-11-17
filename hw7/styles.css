@@ -843,25 +843,15 @@ textarea:focus {
 }
 
 /* Modal */
-.modal-backdrop {
-  position: fixed;
-  inset: 0;
-  background: rgba(17, 24, 39, 0.6);
-  backdrop-filter: blur(4px);
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-}
-
 .modal-card {
   background: var(--color-white);
   border-radius: var(--radius-lg);
   max-width: 600px;
   width: 100%;
-  max-height: 90vh;
-  overflow-y: auto;
+  max-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;          /* stop the whole card from scrolling */
   box-shadow: var(--shadow-lg);
 }
 
@@ -871,26 +861,32 @@ textarea:focus {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: sticky;
-  top: 0;
+  flex-shrink: 0;            /* header stays fixed */
   background: var(--color-white);
-  z-index: 1;
-}
-
-.modal-close {
-  background: none;
-  border: none;
-  font-size: 1.25rem;
-  cursor: pointer;
-  color: #6b7280;
 }
 
 .modal-body {
   padding: 24px;
+  overflow-y: auto;          /* only the body scrolls */
+  flex: 1;
 }
 
+/* Always-visible scrollbar so users see there's more content */
+.modal-body::-webkit-scrollbar {
+  width: 8px;
+}
+.modal-body::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 4px;
+}
+.modal-body::-webkit-scrollbar-track {
+  background: transparent;
+}
 .modal-alert {
   margin-top: 0;
+  margin-bottom: 16px;
+  padding: 12px 14px;
+  font-size: 0.82rem;
 }
 
 /* Dispatch Box */
@@ -1039,4 +1035,53 @@ textarea:focus {
   .hero-title { font-size: 1.8rem; }
   .hero-cta-group .btn { width: 100%; }
   .doctor-photo { height: 220px; }
+}
+
+/* Contact page */
+.contact-card h3 {
+  font-size: 1rem;
+  margin: 16px 0 4px;
+  color: var(--color-charcoal);
+}
+.contact-value {
+  font-size: 0.95rem;
+  color: var(--color-gray);
+  margin-bottom: 12px;
+}
+.map-placeholder.small {
+  padding: 16px;
+  margin: 12px 0 20px;
+}
+
+/* Mobile hamburger */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--color-gray-border);
+  border-radius: var(--radius-sm);
+  font-size: 1.25rem;
+  padding: 6px 10px;
+  cursor: pointer;
+  color: var(--color-charcoal);
+}
+
+@media (max-width: 960px) {
+  .menu-toggle { display: inline-block; }
+
+  .main-nav {
+    display: none;
+    position: absolute;
+    top: 72px;
+    left: 0;
+    right: 0;
+    background: var(--color-white);
+    border-bottom: 1px solid var(--color-gray-border);
+    flex-direction: column;
+    padding: 12px 24px;
+    gap: 4px;
+    box-shadow: var(--shadow-md);
+    z-index: 99;
+  }
+  .main-nav.open { display: flex; }
+  .main-nav .nav-link { padding: 12px 8px; text-align: left; }
 }

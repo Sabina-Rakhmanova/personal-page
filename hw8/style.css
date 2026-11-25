@@ -37,7 +37,6 @@ ul {
   list-style: none;
   padding: 0;
   gap: 0.25rem;
-  width: 100%;
 }
 
 ul li {
@@ -84,4 +83,58 @@ button {
   border: none;
   width: 100%;
   color: white;
+}
+
+
+
+body {
+  background: #f3f1ef;
+}
+
+.container {
+  padding: 1.5rem;
+}
+
+.container > * {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.info h2 {
+  font-size: 1.25rem;
+  color: #2b2b2b;
+}
+
+.info h3 {
+  font-size: 1.1rem;
+  color: firebrick;
+}
+
+.info p {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #666;
+  margin: 0.25rem 0;
+}
+
+ul {
+  margin: 0.5rem 0;
+}
+
+ul li {
+  color: #7a1f3d;
+  text-align: center;
+}
+
+button {
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #8b1a1a;
 }

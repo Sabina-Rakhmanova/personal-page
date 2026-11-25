@@ -19,7 +19,6 @@ body {
 .box4 .image { background-image: url("https://unsplash.it/500/200?4"); }
 .box5 .image { background-image: url("https://unsplash.it/800/200?5"); }
 
-
 .container {
   display: flex;
   gap: 1rem;
@@ -42,8 +41,6 @@ ul {
 ul li {
   background: pink;
   padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  font-size: 0.85rem;
 }
 
 .info {
@@ -54,19 +51,9 @@ ul li {
 }
 
 .box2 > .info { justify-content: space-evenly; }
-
-.box4 > .info {
-  justify-content: center;
-  align-items: flex-end;
-}
-
-.box3 > .info {
-  justify-content: flex-end;
-  align-items: center;
-}
-
+.box4 > .info { justify-content: center; align-items: flex-end; }
+.box3 > .info { justify-content: flex-end; align-items: center; }
 .box1 > .info { justify-content: space-between; }
-
 .box5 > .info { justify-content: space-around; }
 
 .box1 ul { justify-content: space-evenly; }
@@ -74,7 +61,6 @@ ul li {
 .box2 ul { justify-content: flex-end; }
 .box4 ul { justify-content: space-between; }
 .box5 ul { justify-content: space-around; }
-
 .box5 ul > * { flex-grow: 1; }
 
 button {
@@ -83,58 +69,4 @@ button {
   border: none;
   width: 100%;
   color: white;
-}
-
-
-
-body {
-  background: #f3f1ef;
-}
-
-.container {
-  padding: 1.5rem;
-}
-
-.container > * {
-  background: white;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-
-.info h2 {
-  font-size: 1.25rem;
-  color: #2b2b2b;
-}
-
-.info h3 {
-  font-size: 1.1rem;
-  color: firebrick;
-}
-
-.info p {
-  font-size: 0.9rem;
-  line-height: 1.4;
-  color: #666;
-  margin: 0.25rem 0;
-}
-
-ul {
-  margin: 0.5rem 0;
-}
-
-ul li {
-  color: #7a1f3d;
-  text-align: center;
-}
-
-button {
-  border-radius: 6px;
-  font-family: inherit;
-  font-size: 0.95rem;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #8b1a1a;
 }
